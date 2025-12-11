@@ -11,7 +11,13 @@ export default function Homepage() {
 
         <>
             <main>
-                <p>SITO DI LOWI</p>
+                {
+                    movies.map(movie => (
+                        <div key={movie.id}>
+                            {movie.title}
+                        </div>
+                    ))
+                }
             </main>
         </>
 

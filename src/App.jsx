@@ -19,7 +19,9 @@ function App() {
   function getMovies() {
 
     axios.get(moviesURL)
-      .then(response => setMovies(response))
+      .then(response => {
+        setMovies(response.data);
+      })
       .catch(error => console.log(error))
   }
 
