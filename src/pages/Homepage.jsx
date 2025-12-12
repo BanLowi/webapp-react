@@ -1,6 +1,7 @@
 import { useContext } from "react";
 
 import MoviesContext from "../context/MoviesContext";
+import { Link } from "react-router-dom";
 
 export default function Homepage() {
 
@@ -11,13 +12,20 @@ export default function Homepage() {
 
         <>
             <main>
-                {
-                    movies.map(movie => (
-                        <div key={movie.id}>
-                            {movie.title}
-                        </div>
-                    ))
-                }
+                <div className="container">
+                    <ul className="list-unstyled">
+
+                        {
+                            movies.map(movie => (
+                                <li>
+                                    <Link key={movie.id}>
+                                        {movie.title}
+                                    </Link>
+                                </li>
+                            ))
+                        }
+                    </ul>
+                </div>
             </main>
         </>
 

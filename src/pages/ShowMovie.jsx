@@ -27,21 +27,37 @@ export default function ShowMovie() {
 
     return (
         <>
-            <div>
+            <div className="container">
 
-                <select className="form-select" aria-label="Default select example" onChange={handleChange}>
-                    <option value="">- select a movie -</option>
-                    {
-                        movies.map(movie => (
-                            <option key={movie.id} value={movie.id}>{movie.title}</option>
-                        ))
-                    }
-                </select>
+                <div>
+
+                    <select className="form-select" aria-label="Default select example" onChange={handleChange}>
+                        <option value="">- select a movie -</option>
+                        {
+                            movies.map(movie => (
+                                <option key={movie.id} value={movie.id}>{movie.title}</option>
+                            ))
+                        }
+                    </select>
+
+                </div>
+                {
+                    selectedMovie &&
+                    <div className="col mt-5">
+                        <div className="card">
+                            <div className="card-header">
+                                <h3>{selectedMovie.title}</h3>
+                            </div>
+                            <div className="card-body">
+                                <h5 className="card-title">{selectedMovie.director}</h5>
+                                <p className="card-text">{selectedMovie.abstract}</p>
+                            </div>
+                            <img src="http://localhost:3000/matrix.jpg" alt="" />
+                        </div>
+                    </div>
+                }
 
             </div>
-            {
-                selectedMovie && <h1>{selectedMovie.title}</h1>
-            }
         </>
     )
 };
