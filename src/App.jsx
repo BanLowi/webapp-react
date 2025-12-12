@@ -6,15 +6,13 @@ import DefaultLayout from "./layout/DefaultLayout";
 
 import Homepage from "./pages/Homepage";
 import ShowMovie from "./pages/ShowMovie";
-import MoviesContext from "./context/MoviesContext"
+import MoviesContext from "./context/MoviesContext";
 
-const moviesURL = "http://localhost:3000/movies"
+const moviesURL = "http://localhost:3000/movies";
 
 function App() {
 
-
   const [movies, setMovies] = useState([]);
-
 
   function getMovies() {
 
@@ -23,10 +21,9 @@ function App() {
         setMovies(response.data);
       })
       .catch(error => console.log(error))
-  }
+  };
 
-  useEffect(getMovies, [])
-
+  useEffect(getMovies, []);
 
   return (
     <>
@@ -45,4 +42,4 @@ function App() {
   )
 };
 
-export default App
+export default App;
