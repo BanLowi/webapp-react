@@ -10,6 +10,14 @@ export default function ShowMovie() {
     console.log(thisMovie);
     console.log(reviews);
 
+    const formInit = {
+        name: "",
+        rating: "",
+        review: ""
+    };
+
+    const [formData, setFormData] = useState(formInit);
+
 
 
     function getThisMovie() {
@@ -25,6 +33,21 @@ export default function ShowMovie() {
         return axios.get("http://localhost:3000/reviews")
             .then(response => setReviews(response.data))
             .catch(err => console.log(err))
+    }
+
+    function handleSubmit(e) {
+        e.preventDefault()
+
+        console.log("Form Submitted", formData);
+
+        return axios.post(`http://localhost:3000/reviews`, formData)
+            .then((response) => {
+                console.log("Review submitted successfully", response.data);
+                setFormData(formInit); // Reset form after submission
+            })
+            .catch((error) => {
+                console.error("Error submitting review", error);
+            });
     }
 
 
@@ -48,6 +71,62 @@ export default function ShowMovie() {
                         </div>
                         <img src={`http://localhost:3000/${thisMovie.image}`} alt="" />
                     </div>
+                </div>
+
+                <div>
+
+                    <form onSubmit={handleSubmit}>
+
+                        <div className="d-flex justify-content-between">
+                            <div className="mb-3 w-75">
+                                <label htmlFor="name" className="form-label">Name</label>
+                                <input
+                                    type="text"
+                                    className="form-control"
+                                    name="name"
+                                    id="userName"
+                                    placeholder="Name"
+                                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                                />
+                                <small id="HelpId" className="form-text text-muted">Type your name to leave a review</small>
+                            </div>
+
+                            <div className="mb-3">
+                                <label htmlFor="rating" className="form-label">Rating</label>
+                                <select
+                                    className="form-select form-select-lg"
+                                    name="rating"
+                                    id="userRating"
+                                    value={formData.rating}
+                                    onChange={(e) => setFormData({ ...formData, rating: e.target.value })}
+                                >
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="3">4</option>
+                                    <option value="3">5</option>
+                                </select>
+                            </div>
+                        </div> {/* userName & userRating */}
+
+                        <div className="mb-3">
+                            <label htmlFor="review" className="form-label">Review</label>
+                            <textarea
+                                className="form-control"
+                                name="review"
+                                id="userReview"
+                                rows="3"
+                                placeholder="Type here"
+                                onChange={(e) => setFormData({ ...formData, review: e.target.value })}
+                            ></textarea>
+                        </div> {/* userReview */}
+
+                        <button type="submit" className="btn btn-primary">
+                            Submit Review
+                        </button>
+
+                    </form>
+
                 </div>
 
                 <div>
