@@ -4,10 +4,11 @@ import axios from "axios";
 
 import DefaultLayout from "./layout/DefaultLayout";
 
-import Homepage from "./pages/Homepage";
+import HomePage from "./pages/HomePage";
+import AboutPage from "./pages/AboutPage";
 import ShowMovie from "./pages/ShowMovie";
+
 import MoviesContext from "./context/MoviesContext";
-import Aboutpage from "./pages/Aboutpage";
 
 const moviesURL = "http://localhost:3000/movies";
 
@@ -32,10 +33,11 @@ function App() {
         <BrowserRouter>
           <Routes>
             <Route element={<DefaultLayout />} >
-              <Route index element={<Homepage />} />
-              <Route path="/movies" element={<Homepage />} />
+              <Route index element={<HomePage />} />
+              <Route path="/movies" element={<HomePage />} />
               <Route path="/movies/:id" element={<ShowMovie />} />
-              <Route path="/about" element={<Aboutpage />} />
+              <Route path="/about" element={<AboutPage />} />
+              <Route path="/movies/*" element={<h1>404 Not Found</h1>} />
             </Route>
           </Routes>
         </BrowserRouter>

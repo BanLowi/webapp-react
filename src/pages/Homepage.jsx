@@ -3,7 +3,7 @@ import { useContext } from "react";
 import MoviesContext from "../context/MoviesContext";
 import { Link } from "react-router-dom";
 
-export default function Homepage() {
+export default function HomePage() {
 
     const { movies } = useContext(MoviesContext);
 

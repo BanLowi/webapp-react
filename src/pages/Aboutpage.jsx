@@ -1,4 +1,4 @@
-export default function Aboutpage() {
+export default function AboutPage() {
 
     return (
         <>
