@@ -18,7 +18,7 @@ export default function Homepage() {
                         {
                             movies.map(movie => (
                                 <li>
-                                    <Link key={movie.id}>
+                                    <Link key={movie.id} to={`/movies/${movie.id}`}>
                                         {movie.title}
                                     </Link>
                                 </li>

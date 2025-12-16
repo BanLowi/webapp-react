@@ -7,6 +7,7 @@ import DefaultLayout from "./layout/DefaultLayout";
 import Homepage from "./pages/Homepage";
 import ShowMovie from "./pages/ShowMovie";
 import MoviesContext from "./context/MoviesContext";
+import Aboutpage from "./pages/Aboutpage";
 
 const moviesURL = "http://localhost:3000/movies";
 
@@ -34,6 +35,7 @@ function App() {
               <Route index element={<Homepage />} />
               <Route path="/movies" element={<Homepage />} />
               <Route path="/movies/:id" element={<ShowMovie />} />
+              <Route path="/about" element={<Aboutpage />} />
             </Route>
           </Routes>
         </BrowserRouter>

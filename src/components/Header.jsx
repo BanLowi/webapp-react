@@ -8,8 +8,8 @@ export default function Header() {
                 <nav className="navbar navbar-expand-lg bg-body-tertiary">
                     <div className="collapse navbar-collapse container-xl" id="navbarNavAltMarkup">
                         <div className="navbar-nav">
-                            <NavLink to="/movies" className="nav-link">INDEX</NavLink>
-                            <NavLink to="/movies/:id" className="nav-link">SHOW</NavLink>
+                            <NavLink to="/movies" className="nav-link">HOME</NavLink>
+                            <NavLink to="/about" className="nav-link">ABOUT</NavLink>
                         </div>
                     </div>
                 </nav>
